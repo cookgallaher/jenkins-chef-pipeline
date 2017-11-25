@@ -9,7 +9,13 @@ node {
           sh 'whoami'
         }
         stage('Test') {
-            sh 'kitchen test'
+          try{
+            sh "kitchen test"
+          } catch (err) {
+            error "Kitchen tests failed: ${err}"
+          } finally {
+            sh "kitchen destroy"
+          }
         }
     }
 }
