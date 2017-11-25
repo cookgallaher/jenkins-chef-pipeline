@@ -1,5 +1,6 @@
 node {
     stage('Show') {
+      checkout scm
       sh 'ls -l /var/lib/jenkins/workspace/chef'
     }
     /* Requires the Docker Pipeline plugin to be installed */
