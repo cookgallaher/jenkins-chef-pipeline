@@ -14,7 +14,7 @@ node {
           } catch (err) {
             error "Kitchen tests failed: ${err}"
           } finally {
-            sh "kitchen list"
+            sh "kitchen destroy"
           }
         }
     }
